@@ -1,0 +1,26 @@
+{
+  "name": "jquery-qrcode",
+  "version": "1.0.0",
+  "description": "提供对二维码 (Qrcode) 生成和解析的一个 jQuery 前端组件",
+  "author": {
+    "name": "AlphaTr",
+    "email": "trefoiles@gmail.com",
+    "url": "https://github.com/AlphaTr"
+  },
+  "keywords": [
+    "jquery plugin",
+    "qrcode",
+    "decode",
+    "encode"
+  ],
+  "homepage": "https://github.com/AlphaTr/jquery-qrcode",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:AlphaTr/jquery-qrcode.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-concat": "^2.4.2"
+  }
+}
