@@ -67,3 +67,5 @@ gulp.task('build', ['dep'], function() {
         .pipe(uglify(outFile, opts))
         .pipe(gulp.dest('dest/'));
 });
+
+gulp.task('default', ['build']);
