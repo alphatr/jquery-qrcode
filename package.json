@@ -21,6 +21,7 @@
   "license": "MIT",
   "devDependencies": {
     "gulp": "^3.8.10",
-    "gulp-concat": "^2.4.2"
+    "gulp-param": "^0.6.3",
+    "gulp-uglifyjs": "^0.6.2"
   }
 }

@@ -59,3 +59,19 @@ config 参数可以是一个对象或者字符串，字符串时会将字符串�
 ### QRCode Decode
 
 使用 `$('canvas').qrdecode()` 即可，选择器取到的是绘有二维码的 canvas 元素 jQuery 对象。
+
+### 使用 gulp 打包
+
+使用命令 `gulp` 或者 `gulp package` 默认会对全部文件进行压缩打包，如果只需要打包解码或者编码部分则需要添加不同的参数，参数说明如下：
+
+* `--file`
+
+    可取值 'decode', 'encode', 'all' 默认参数为 all，即全部打包，decode 和 encode 表示分别打包解码和编码部分；
+
+* `--debug`
+
+    表示 debug 模式，默认会对打包的代码进行压缩；在 debug 模式下，不会压缩；
+
+* `--render`
+
+    在打包了编码模块下有效，可取值 'table', 'canvas', 'all' 默认参数为 all，即全部打包，table 和 canvas 表示分别使用 canvas 和 table 渲染模块；
