@@ -152,7 +152,7 @@ QREncode.prototype = {
             qr.bitIdx += nCountBits;
 
             for (i = 0; i < text.length; i++) {
-                appendBits(qr.data, qr.bitIdx, 8, text[i].charCodeAt());
+                appendBits(qr.data, qr.bitIdx, 8, text.charCodeAt(i));
                 qr.bitIdx += 8;
             }
         }
@@ -166,7 +166,7 @@ QREncode.prototype = {
             qr.bitIdx += nCountBits;
 
             for (i = 0; i < n; i++) {
-                ch = text[i].charCodeAt() - 48;
+                ch = text.charCodeAt(i) - 48;
                 if ((ch < 0) || (ch > 9)) {
                     QRBase.errorThrow("Invalid character for Numeric encoding [" + text[i] + "]");
                 }
