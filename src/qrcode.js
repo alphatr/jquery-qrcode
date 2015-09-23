@@ -84,8 +84,17 @@
         config = $.extend({}, $.qrcode.config, config);
 
         new QRCode(config, function (qrdom) {
+            var el, context;
             for (i = 0; i < length; i++) {
-                $self.eq(i).empty().append(qrdom);
+                if (config.render === 'table') {
+                    el = qrdom.clone();
+                } else {
+                    el = qrdom.cloneNode(true);
+                    context = el.getContext("2d");
+                    context.drawImage(qrdom, 0, 0);
+                }
+
+                $self.eq(i).empty().append(el);
             }
         });
     };

@@ -37,6 +37,9 @@
             </select></p>
             <p><button id="encode-btn">EnCode</button></p>
             <div id="encode-canvas"></div>
+            <div class="qrcode-res"></div>
+            <div class="qrcode-res"></div>
+            <div class="qrcode-res"></div>
         </li>
         <li class="decode">
             <p><label>选择二维码图片：</label><input type="file" name="files[]" id="decode-file"/></p>
@@ -136,7 +139,7 @@ $('#encode-btn').on('click', function () {
         alert("请输入文本");
         return;
     }
-    $('#encode-canvas').qrcode(config);
+    $('#encode-canvas, .qrcode-res').qrcode(config);
 });
 
 // 二维码加载
