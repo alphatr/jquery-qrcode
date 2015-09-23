@@ -628,12 +628,12 @@ ReedSolomon.prototype = {
         function add8bit(qr, text) {
             var i, nCountBits = QRBase.nCountBits(QRBase.MODE.EightBit, qr.version);
             for (appendBits(qr.data, qr.bitIdx, nCountBits, text.length), qr.bitIdx += nCountBits, 
-            i = 0; i < text.length; i++) appendBits(qr.data, qr.bitIdx, 8, text[i].charCodeAt()), 
+            i = 0; i < text.length; i++) appendBits(qr.data, qr.bitIdx, 8, text.charCodeAt(i)), 
             qr.bitIdx += 8;
         }
         function addNumeric(qr, text) {
             var val, i, ch, n = text.length, nCountBits = QRBase.nCountBits(QRBase.MODE.Numeric, qr.version), num = [];
-            for (appendBits(qr.data, qr.bitIdx, nCountBits, n), qr.bitIdx += nCountBits, i = 0; n > i; i++) ch = text[i].charCodeAt() - 48, 
+            for (appendBits(qr.data, qr.bitIdx, nCountBits, n), qr.bitIdx += nCountBits, i = 0; n > i; i++) ch = text.charCodeAt(i) - 48, 
             (0 > ch || ch > 9) && QRBase.errorThrow("Invalid character for Numeric encoding [" + text[i] + "]"), 
             num.push(ch);
             for (i = 0; n - 2 > i; i += 3) val = 100 * num[i] + 10 * num[i + 1] + num[i + 2], 
@@ -903,7 +903,9 @@ ReedSolomon.prototype = {
         var i, $self = $(this), length = $self.length, config = {};
         "string" == typeof cfg ? config.text = cfg : config = cfg, config = $.extend({}, $.qrcode.config, config), 
         new QRCode(config, function(qrdom) {
-            for (i = 0; length > i; i++) $self.eq(i).empty().append(qrdom);
+            var el, context;
+            for (i = 0; length > i; i++) "table" === config.render ? el = qrdom.clone() : (el = qrdom.cloneNode(!0), 
+            context = el.getContext("2d"), context.drawImage(qrdom, 0, 0)), $self.eq(i).empty().append(el);
         });
     };
 }(jQuery, window, document), function($, window, document, undefined) {
