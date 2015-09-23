@@ -1,6 +1,6 @@
 {
   "name": "jquery-qrcode",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "提供对二维码 (Qrcode) 生成和解析的一个 jQuery 前端组件",
   "author": {
     "name": "AlphaTr",
